@@ -1,21 +1,25 @@
 {
-  "name": "pratice-node-project",
+  "name": "my-node-practice",
   "version": "0.0.1",
   "description": "Node.js project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run compile && npm run test:dev",
+    "test:dev": "export NODE_ENV=dev,test && export DEBUG='my:*,project-core:*' && mocha target/test/* -t 5000",
+    "watch": "npm run clean && babel src -d target --watch",
+    "compile": "npm run clean && babel src -d target",
+    "clean": "rm -Rf target"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fulltimefarmer/pratice-node-project.git"
+    "url": "git+https://github.com/fulltimefarmer/my-node-practice.git"
   },
   "author": "Max <zhoujun9633@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fulltimefarmer/pratice-node-project/issues"
+    "url": "https://github.com/fulltimefarmer/my-node-practice/issues"
   },
-  "homepage": "https://github.com/fulltimefarmer/pratice-node-project#readme",
+  "homepage": "https://github.com/fulltimefarmer/my-node-practice/blob/master/README.md",
   "dependencies": {
     "project-core": "^0.1.3"
   },

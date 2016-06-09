@@ -1,7 +1,7 @@
-# pratice-node-project
-Node.js项目实战
+# my-node-practice
+Node.js project
 
-## 开发
+## dev
 
 ```bash
 $ npm run watch
