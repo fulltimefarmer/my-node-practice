@@ -19,24 +19,21 @@
    debug('initing Express...');
 
    const app = express();
-   $.express = app;
+   //$.express = app;
 
    app.use(bodyParser.json());
    app.use(bodyParser.urlencoded({extended: false}));
 
    const router = express.Router();
+   $.router = router;
 
    app.use(router);
    app.use('/static', serveStatic(path.resolve(__dirname, '../../static')));
    //app.use('/build', serveStatic(path.resolve(__dirname, '../../frontend/build')));
 
 
-   if ($.config.get('web.port')) {
-     app.listen($.config.get('web.port'), (err) => {
-       done(err);
-     });
-   } else {
-     done();
-   }
+   app.listen($.config.get('web.port'), (err) => {
+     done(err);
+   });
 
  };

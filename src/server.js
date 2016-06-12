@@ -31,13 +31,13 @@ const debug = $.createDebug('server');
  });
 
 // init mongoDB
-$.init.load(path.resolve(__dirname, 'init', 'mongodb.js'));
+//$.init.load(path.resolve(__dirname, 'init', 'mongodb.js'));
 // load Models
 $.init.load(path.resolve(__dirname, 'models'));
 
-// 初始化Express
+// init Express
 $.init.load(path.resolve(__dirname, 'init', 'express.js'));
-// 加载路由
+// init Router
 $.init.load(path.resolve(__dirname, 'routes'));
 
 // init
@@ -48,4 +48,13 @@ $.init((err) => {
   } else {
     console.log('inited [env=%s]', $.env);
   }
+
+  /* DB Test
+  const item = new $.model.User({
+    name: `User${$.utils.date('Ymd')}`,
+    password: '123456',
+    nickname: 'Test User',
+  });
+  item.save(console.log);
+  */
 });
